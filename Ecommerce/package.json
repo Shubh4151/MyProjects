@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "fend": "^0.0.0",
+    "react-router-dom": "^7.6.0"
+  }
+}
