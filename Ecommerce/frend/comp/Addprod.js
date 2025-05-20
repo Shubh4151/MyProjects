@@ -4,6 +4,7 @@ import Cookies from 'js-cookie'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import Ct from "./Ct"
+
 const Addprod = () => {
   let [data,setData]=useState({"name":"","desc":"","cat":"","price":"","pimg":""})
     let [msg,setMsg]=useState("")

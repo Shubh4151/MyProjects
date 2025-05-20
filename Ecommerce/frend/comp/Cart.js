@@ -69,14 +69,11 @@ axios.get(`http://localhost:5000/getcart/${x.uid}`).then((res)=>{
     <p>Total:{pobj.qty*pobj.price}</p>
     <button class="btn btn-primary" onClick={()=>delcart(pobj._id)} >delcart</button>
 </div>
-
                 )
             })
         }
      { data.length>0&&  <div>{ctotal}</div>} 
-        { data.length==0&&  <div>Your Cart was empty</div>} 
-    
-    
+        { data.length==0&&  <div>Your Cart was empty</div>}     
     </div>
   )
 }
