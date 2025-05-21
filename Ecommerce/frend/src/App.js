@@ -15,6 +15,7 @@ import Cookies  from 'js-cookie'
 import Km from "./comp/Km"
 import Admpage from "./comp/Admpage"
 import Edit from "./comp/Edit"
+
 const App = () => {
   let [state,setSate]=useState({"token":"","uid":"","role":"","name":""})
 let stateupd=(sobj)=>{
