@@ -15,7 +15,6 @@ const Hal = () => {
     }
   return (
     <div>
-
      <div>
      <input type='radio' name="opt" value="phno" onChange={fun}/>Phone Number
      <input type='radio' name="opt" value="email" onChange={fun}/>E-mail
@@ -29,9 +28,7 @@ const Hal = () => {
             <p>HALLNO:{data[0]._id}</p>
             <p>Name:{data[0].name}</p>
         </div>}
-
     </div>
   )
 }
-
 export default Hal

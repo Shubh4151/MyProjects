@@ -10,7 +10,6 @@ const Login = () => {
   let navigate=useNavigate()
   let fun=(e)=>{
     setData({...data,[e.target.name]:e.target.value})
-
   }
   let login=()=>{
     axios.post("http://localhost:5000/login",data).then((res)=>{
@@ -18,7 +17,6 @@ const Login = () => {
       {
         obj.updstore(res.data)
         navigate("/disp")
-
       }
       else{
         setMsg(res.data.msg)

@@ -53,12 +53,10 @@ axios.get("http://localhost:5000/getstd",{"headers":{"Authorization":obj.store.t
               <td><button onClick={()=>upd({"std":std})}>Edit</button></td>
               <td><button onClick={()=>del(std._id)}>Delete</button></td>
             </tr>)
-
           })
         }
         </table>}
     </div>
   )
 }
-
 export default Disp

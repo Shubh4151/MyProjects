@@ -5,7 +5,6 @@ const Reg = () => {
   let [msg,setMsg]=useState("")
   let fun=(e)=>{
     setData({...data,[e.target.name]:e.target.value})
-
   }
   let fun1=(e)=>{
     setData({...data,"photo":e.target.files[0]})
@@ -25,12 +24,9 @@ setData({"name":"","phno":"","email":"","gen":"","dob":"","photo":""})
       else{
         setMsg(res.data.err)
       }
-
-
     }).catch((err)=>{
       console.log(err)
     })
-
   }
   return (
     <div className='fcon'>

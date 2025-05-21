@@ -1,15 +1,15 @@
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
-import Nav from "./Comp/Nav"
-import Home from "./comp/Home"
-import Login from './comp/Login'
-import Logout from './comp/Logout'
-import Disp from './comp/Disp'
-import Reg from './comp/Reg'
-import Edit from './comp/Edit'
-import './App.css'
-import Hal from './comp/Hal'
-import Ct from './comp/Ct'
+import Nav from "./Component/Nav"
+import Home from "./component/Home"
+import Login from './component/Login'
+import Logout from './component/Logout'
+import Disp from './component/Disp'
+import Reg from './component/Reg'
+import Edit from './component/Edit'
+import Hal from './component/Hal'
+import Ct from './component/Ct'
 import { useState } from 'react'
+import './App.css'
 
 const App = () => {
   let [store,setStore]=useState({"token":"","name":""})
