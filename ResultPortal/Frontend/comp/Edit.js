@@ -23,9 +23,7 @@ const Edit = () => {
     axios.put("http://localhost:5000/upd",data,{"headers":{"Authorization":obj.store.token}}).then((res)=>{
       navigate("/disp")
     })
-
   }
-
   return (
     <div className='fcon'>
       <div className='form'>
@@ -37,7 +35,6 @@ const Edit = () => {
         <div> 
           <input type='radio' value="male" onChange={fun} name="gen" checked={data.gen=="male"}/>Male
           <input type='radio' value="female" onChange={fun} name="gen" checked={data.gen=="female"}/>Female
-        
         </div>
         <input type='text' placeholder='Enter t' value={data.tel} name="tel" onChange={fun}/>
         <input type='text' placeholder='Enter h' value={data.hn} name="hn" onChange={fun}/>
@@ -46,10 +43,8 @@ const Edit = () => {
         <input type='text' placeholder='Enter s' value={data.s} name="s" onChange={fun}/>
         <input type='text' placeholder='Enter sc' value={data.sc} name="sc" onChange={fun}/>
         <button onClick={upd}>Update</button>
-
       </div>
     </div>
   )
 }
-
 export default Edit

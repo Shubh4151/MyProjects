@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import axios from 'axios'
 import Ct from './Ct'
 import { useNavigate } from 'react-router-dom'
+
 const Disp = () => {
   let [data,setData]=useState([])
   let [f,setF]=useState(true)
@@ -22,7 +23,6 @@ axios.get("http://localhost:5000/getstd",{"headers":{"Authorization":obj.store.t
   let upd=(edtobj)=>{
     obj.updstore(edtobj)
     navigate("/edit")
-
   }
   let del=(hno)=>{
     axios.delete(`http://localhost:5000/del/${hno}`,{"headers":{"Authorization":obj.store.token}}).then((res)=>{
@@ -30,7 +30,6 @@ axios.get("http://localhost:5000/getstd",{"headers":{"Authorization":obj.store.t
 
     })
   }
-
   return (
     <div id='disp'>
       {data.length>0&&<table>
