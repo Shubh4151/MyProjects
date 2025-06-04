@@ -31,7 +31,6 @@ const ToDo = () => {
       console.error(err);
     }
   };
-  
 
   const handleDelete = async (id) => {
     await axios.delete(`http://localhost:5000/todo/${id}`);
@@ -55,7 +54,7 @@ const ToDo = () => {
   return (
     <div className="todo-wrapper">
   <div className="todo-input-card">
-    <h2>My To-Do App</h2>
+    <h1>My To-Do App</h1>
     <div className="todo-input">
     <input value={task} onChange={(e) => setTask(e.target.value)} placeholder="Enter task" />
     <button onClick={handleAdd}>{editId ? "Update" : "Add"}</button>
@@ -67,6 +66,7 @@ const ToDo = () => {
       {todos.filter(t => !t.completed).map(todo => (
         <div className="task-item" key={todo._id}>
           {todo.task}
+        
           <button onClick={() => handleEdit(todo)}>Edit</button>
           <button onClick={() => handleDelete(todo._id)}>Delete</button>
           <button onClick={() => handleComplete(todo._id, todo.completed)}>Complete</button>
@@ -78,7 +78,8 @@ const ToDo = () => {
       <h3>Completed Tasks</h3>
       <div className="task-list">
       {todos.filter(t => t.completed).map(todo => (
-        <div key={todo._id}>{todo.task} <button onClick={() => handleDelete(todo._id)}>Delete</button></div>
+        <div key={todo._id}>{todo.task} 
+        <button onClick={() => handleDelete(todo._id)}>Delete</button></div>
       ))}
     </div>
     </div>

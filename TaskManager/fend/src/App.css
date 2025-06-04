@@ -160,13 +160,14 @@ body {
     border-radius: 6px;
     font-size: 13px;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;    
   }
-  
   .todo-item .edit {
     background-color: #ffb300;
     color: #fff;
   }
-  
   .todo-item .delete {
     background-color: #e53935;
     color: #fff;
@@ -176,4 +177,16 @@ body {
     background-color: #43a047;
     color: #fff;
   }
-  
+  .task-item button,.task-list button{
+    margin: 10px;
+    padding: 10px;
+    gap: 5px;
+    background-color: #00acc1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 50px;
+    
+  }
+ 
