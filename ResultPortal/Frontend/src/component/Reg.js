@@ -36,13 +36,13 @@ setData({"name":"","phno":"","email":"","gen":"","dob":"","photo":""})
         <input type='text' placeholder='Enter E-mail' value={data.email} name="email" onChange={fun}/>
         <input type='text' placeholder='Enter phno' value={data.phno} name="phno" onChange={fun}/>
         <input type='date' value={data.dob} name="dob" onChange={fun}/>
-        <div> 
+        <div className='radio'> 
           <input type='radio' value="male" onChange={fun} name="gen" checked={data.gen=="male"}/>Male
           <input type='radio' value="female" onChange={fun} name="gen" checked={data.gen=="female"}/>Female
+        </div>
           <input type='file' onChange={fun1}/>
           <button onClick={reg}>Register</button>
-        </div>
-
+        
       </div>
     </div>
   )

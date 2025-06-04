@@ -15,12 +15,14 @@ const Hal = () => {
     }
   return (
     <div>
-     <div>
-     <input type='radio' name="opt" value="phno" onChange={fun}/>Phone Number
-     <input type='radio' name="opt" value="email" onChange={fun}/>E-mail
-        </div>   
+      <div className="rad">
+        <input type='radio' name="opt" value="phno" onChange={fun}/>Phone Number
+        <input type='radio' name="opt" value="email" onChange={fun}/>E-mail
+      </div>  
+      <div className="gethal"> 
         <input type='text' onChange={fun1} />
         <button onClick={gethal}>Get HAL</button>
+      </div>
         {data!==""&&data.length==0&&<div>Check details</div>}
        {data!=""&&data.length>0&& <div className='hcard'>
 
