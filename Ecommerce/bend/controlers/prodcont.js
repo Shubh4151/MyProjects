@@ -44,8 +44,7 @@ let getbyid=async(req,res)=>{
         let obj=await pm.aggregate([{$unwind:{"path":"$comm"}},{$group:{"_id":"$_id","avgrt":{$avg:"$comm.rt"},"count":{$sum:1}}}])
         if(obj)
         {
-            console.log(obj)
-            
+            console.log(obj)  
         }
         else{
             console.log("no rt")

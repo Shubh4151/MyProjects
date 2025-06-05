@@ -59,8 +59,6 @@ setF(!f)
       <button onClick={add}>Addcomm</button>
  </div>}
     </div>}
-
-   
  </> )
 }
 

@@ -19,7 +19,6 @@ const Resetpwd = () => {
       else{
         setMsg(res.data.msg)
       }
-
     })
   }
   return (

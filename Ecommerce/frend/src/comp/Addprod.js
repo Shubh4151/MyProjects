@@ -31,7 +31,6 @@ setUid(x.uid)
     let fun1=(e)=>{
   setData({...data,"pimg":e.target.files[0]})
     }
-  
     let add=()=>{
       let fd=new FormData()
       for(let p in data)

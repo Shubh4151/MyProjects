@@ -12,8 +12,6 @@ const Home = () => {
         axios.get("http://localhost:5000/prod").then((res)=>{
             setProd(res.data)
         })
-   
-
     },[])
     let addcart=(pobj)=>{
       if(obj.state.token=="")
@@ -35,9 +33,7 @@ const Home = () => {
       </div>}
 
       <h1 className='container-fluied text-primary text-center'>Products</h1>
-    <div className='cardcon'>
-        
-        
+    <div className='cardcon'>        
         {
             prod.map((pobj)=>{
                 return(
@@ -49,7 +45,6 @@ const Home = () => {
     <button class="btn btn-primary" onClick={()=>addcart(pobj)}>AddtoCart</button>
     <button onClick={()=>navigate(`/km/${pobj._id}`)}>KnowMore</button>
 </div>
-
                 )
             })
         }

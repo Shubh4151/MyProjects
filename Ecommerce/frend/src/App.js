@@ -23,7 +23,7 @@ let stateupd=(sobj)=>{
 }
 useEffect(()=>{
        let x=Cookies.get("lc")
-        if(x!=undefined)
+        if(x!==undefined)
         {
           stateupd(JSON.parse(x))
         }

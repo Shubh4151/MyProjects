@@ -9,11 +9,9 @@ const Logout = () => {
     Cookies.remove("lc")
     obj.stateupd({"token":"","uid":"","role":"","name":""})
     navigate("/")
-
   },[])
   return (
     <div>Logout</div>
   )
 }
-
 export default Logout

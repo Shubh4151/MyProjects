@@ -26,8 +26,8 @@ const Reg = () => {
         <input type='text' placeholder='enter name' value={data.name} onChange={fun} name="name"/>
         <input type='password' placeholder='enter password' value={data.pwd} onChange={fun} name='pwd'/>
         <div style={{ display: 'flex', gap: '5px' }}>
-          <input type='radio' value="user" onChange={fun} name="role" checked={data.role=="user"}/>User
-          <input type='radio' value="retailer" onChange={fun} name="role" checked={data.role=="retailer"}/>Retailer
+          <input type='radio' value="user" onChange={fun} name="role" checked={data.role==="user"}/>User
+          <input type='radio' value="retailer" onChange={fun} name="role" checked={data.role==="retailer"}/>Retailer
         </div>
         <button onClick={reg}>Register</button>
       </div>

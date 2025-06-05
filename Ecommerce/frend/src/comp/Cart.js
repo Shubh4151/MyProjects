@@ -14,7 +14,7 @@ let navigate=useNavigate()
   useEffect(()=>{
     let x=Cookies.get("lc")
    
-        if(x!=undefined)
+        if(x!==undefined)
         {
            x=JSON.parse(x)
           obj.stateupd(x)
