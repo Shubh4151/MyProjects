@@ -81,6 +81,7 @@ h1 {
 .form-lft h1, .form-rgt h1{
   color: darkcyan;
 }
+
 /* Add post */
 .add-box{
   width: 100%;
@@ -120,3 +121,261 @@ h1 {
   background-color: lightseagreen;
   font-weight: bold;
 }
+
+*{
+     margin: 0px;
+     padding: 0px;
+     outline: none;
+}
+nav {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: linear-gradient(90deg, #111, #1f1f1f);
+  box-shadow: 0 2px 8px rgba(0, 255, 255, 0.1);
+  color: #505151;
+  font-size: 1.1rem;
+  text-shadow: 0 0 5px #00ffff88;
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: navEnter 0.6s ease-out forwards;
+  transition: background 0.3s ease;
+}
+
+/* Keyframes for entrance animation */
+@keyframes navEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+nav a,nav a:hover{
+     color: white;
+     text-decoration: none;
+     font-size: 20px;
+     text-shadow: 0 0 3px #00ffff, 0 0 10px #00ffff88;
+
+}
+.home{
+     width: 100%;
+     height: 90vh;
+     display: flex;
+}
+.sdmenu {
+  width: 20%;
+  background: linear-gradient(#B6B09F, #EAE4D5);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-sizing: border-box;
+  padding: 1rem;
+  border-right: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow:
+    inset -5px 0 12px rgba(0, 255, 255, 0.2),
+    5px 0 20px rgba(0, 255, 255, 0.3),
+    0 0 20px rgba(0, 255, 255, 0.2);
+  font-weight: 600;
+  font-size: 1rem;
+  overflow: hidden;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff88;
+  text-decoration: none;
+}
+.sdmenu a{
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Hover: bright background, smooth glow */
+.sdmenu > *:hover {
+  
+  border-radius: 8px;
+  padding-left: 0.5rem;
+  color: cadetblue;
+  cursor: pointer;
+  box-shadow: 0 0 10px #00ffffaa, inset 0 0 5px #00ffff33;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px #ffffff, 0 0 10px #00ffff;
+  
+}
+
+
+.content {
+     width: 80%;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient( #096B68, #90D1CA,#129990);
+  overflow: scroll;
+     scrollbar-width: none;
+}
+
+.con {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Animated Article Card */
+.card {
+  background: linear-gradient(145deg, #141414, #1f1f1f);
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  box-shadow:
+    0 0 10px rgba(0, 255, 255, 0.2),
+    0 8px 20px rgba(0, 255, 255, 0.1),
+    inset 0 0 10px rgba(0, 255, 255, 0.05);
+  color: #e0f7fa;
+  animation: cardEnter 0.8s ease forwards;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(0px) scale(1.01);
+  box-shadow:
+    0 0 15px rgba(0, 255, 255, 0.4),
+    0 10px 30px rgba(0, 255, 255, 0.2),
+    inset 0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+/* Text Styling */
+.card h2 {
+  font-size: 1.5rem;
+  color: #00ffff;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 5px #00ffffaa;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #b2ebf2;
+  margin: 0.3rem 0;
+}
+
+/* Post Footer Info (name, date, cat) */
+.card > div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  color: #80deea;
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
+  padding-top: 0.8rem;
+}
+
+/* Entry Animation */
+@keyframes cardEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+.postcon,.logcon,.regcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-color:rgb(147, 135, 95);
+}
+
+.post,.login,.reg{
+  background: rgba(20, 20, 20, 0.8);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #0ff;
+  animation: pulseBox 3s infinite;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 300px;
+  
+}
+
+input, select {
+  padding: 0.8rem;
+  border: none;
+  outline: none;
+  background: #111;
+  color: #0ff;
+  font-size: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #0ff;
+  transition: all 0.3s ease-in-out;
+  animation: neonGlow 1s infinite alternate;
+}
+
+input::placeholder {
+  color: #0ff;
+  opacity: 0.6;
+}
+
+select {
+  background: #111;
+  color: #0ff;
+}
+
+select option {
+  background: #111;
+  color: #0ff;
+}
+
+button {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 10px;
+  background: #0ff;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulseButton 1s infinite;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #0ff, 0 0 40px #0ff;
+}
+
+/* Animations
+@keyframes neonGlow {
+  from {
+    box-shadow: 0 0 5px #0ff;
+  }
+  to {
+    box-shadow: 0 0 20px #0ff;
+  }
+}
+
+@keyframes pulseBox {
+  0%, 100% {
+    box-shadow: 0 0 15px #0ff;
+  }
+  50% {
+    box-shadow: 0 0 25px #0ff, 0 0 40px #0ff;
+  }
+}
+
+@keyframes pulseButton {
+  0% {
+    box-shadow: 0 0 10px #0ff;
+  }
+  50% {
+    box-shadow: 0 0 25px #0ff, 0 0 40px #0ff;
+  }
+  100% {
+    box-shadow: 0 0 10px #0ff;
+  }
+} */

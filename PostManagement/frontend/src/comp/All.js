@@ -1,63 +1,69 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Ct from './Ct'
-
-
+import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
 const All = () => {
-    let [posts, setPosts] = useState([])
+    let [data,setData]=useState([])
     let [f,setF]=useState(true)
-    useEffect(() => {
-        axios.get("http://localhost:5000/").then((res) => {
-            setPosts(res.data)
+    let navigate=useNavigate()
+    useEffect(()=>{
+axios.get("http://localhost:5000/all").then((res)=>{
+    setData(res.data)
+})
+    },[f])
+let like=(pid)=>{
+    let t=Cookies.get("lgc")
+    if(t)
+    {
+        t=JSON.parse(t)
+        axios.put("http://localhost:5000/like",{"pid":pid,"uid":t.uid}).then((res)=>{
+            setF(!f)
         })
-    }, [f])
-    let cobj=useContext(Ct)
-    let addlike=(pid)=>{
-        if(cobj.state.token!="")
+
+    }
+    else{
+        navigate("/login")
+    }
+}
+
+let dlike=(pid)=>{
+    let t=Cookies.get("lgc")
+    if(t)
+    {
+        t=JSON.parse(t)
+        axios.put("http://localhost:5000/dlike",{"pid":pid,"uid":t.uid}).then((res)=>{
+            setF(!f)
+        })
+
+    }
+    else{
+        navigate("/login")
+    }
+}
+  return (
+    <div className='con'>
         {
-            axios.post("http://localhost:5000/addlike",{"_id":pid,"uid":cobj.state._id}).then(()=>{
-                setF(!f)
+            data.map((post)=>{
+                return(<div className='card'>
+                    <h2>{post.title}</h2>
+                    <p>{post.desc}</p>
+                    <div>
+                        <p>{post.name}</p>
+                        <p>{new Date(post.date).toLocaleDateString()}</p>
+                        <p>{post.cat}</p>
+                    </div>
+                    <div>
+                        <button onClick={()=>like(post._id)}>Like {post.likes.length}</button>
+                        <button onClick={()=>dlike(post._id)}>Dislike {post.dlikes.length}</button>
+                
+                    </div>
+
+                </div>)
             })
         }
 
-    }
-
-    let adddlike=(pid)=>{
-        if(cobj.state.token!="")
-        {
-            axios.post("http://localhost:5000/adddlike",{"_id":pid,"uid":cobj.state._id}).then(()=>{
-                setF(!f)
-            })
-        }
-
-    }
-
-    return (
-        <div className='newscon'>
-            <h1>All Recent Posts</h1>
-            <div className='news-grid'>
-                {
-                    posts.map((obj) => {
-                        return (
-                            <div className='newscard' key={obj._id}>
-                                <h2>{obj.title.toUpperCase()}
-                                    <span className='cat'>Cat: {obj.cat}</span>
-                                </h2>
-                                <p className='content'>{obj.text}</p>
-                                <button onClick={()=>addlike(obj._id)}>Like:{obj.likes.length}</button>
-                                <button onClick={()=>adddlike(obj._id)}>DLike:{obj.dlikes.length}</button>
-                             
-                                <div className='foot'>
-                                    <span className='date'>{obj.date}</span>
-                                    <span className='uname'>{obj.uname}</span>
-                                </div>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-        </div>
-    )
+    </div>
+  )
 }
 
 export default All

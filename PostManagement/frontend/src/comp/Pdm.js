@@ -1,49 +1,47 @@
-import React, { useEffect, useState, useContext } from "react";
-import axios from "axios";
-import Ct from "./Ct";
-import Cookies from "js-cookie"
-
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
 const Pdm = () => {
-  let obj = useContext(Ct);
-  let [posts, setPosts] = useState([]);
-  let x = Cookies.get("con");
-  x = JSON.parse(x);
-  useEffect(() => {
-    axios.get(`http://localhost:5000/postsbyme/${x._id}`).then((res) => {
-      setPosts(res.data);
-    });
-  }, []);
+    let [data,setData]=useState([])
+  let navigate=useNavigate()
+  useEffect(()=>{
+    let t=Cookies.get("lgc")
+    if(t!=undefined)
+    {
+let cobj=JSON.parse(t)
+      axios.get(`http://localhost:5000/pdm/${cobj.uid}`).then((res)=>{
+    setData(res.data)
+})
+
+    }
+    else{
+      navigate("/login")
+    }
+
+  },[])
 
   return (
-    <div className="newscon">
-      <h1>All Recent Posts</h1>
-      <div className="news-grid">
-        {posts.map((obj) => {
-          return (
-            <div className="newscard" key={obj.id}>
-              <h2>
-                {obj.title.toUpperCase()}
-                <span className="cat">Cat: {obj.cat}</span>
-              </h2>
-              <p className="content">{obj.text}</p>
-              
-              <div className="foot">
-                {obj.status == "review" && <span className="date">MSG:{obj.comm}</span>}
+    <div className='con'>
+        {
+            data.map((post)=>{
+                return(<div className='card'>
+                    <h2>{post.title}</h2>
+                    <p>{post.desc}</p>
+                    <div>
+                        <p>{post.name}</p>
+                        <p>{new Date(post.date).toLocaleDateString()}</p>
+                        <p>{post.cat}</p>
+                        {post.comm!=undefined&&<p>{post.comm}</p>}
+                        <p>Status:{post.status}</p>
+                    </div>
 
-                <span className="uname">Status:{obj.status}</span>
-              </div>
+                </div>)
+            })
+        }
 
-              <div className="foot">
-                <span className="date">{obj.date}</span>
-
-                <span className="uname">{obj.uname}</span>
-              </div>
-            </div>
-          );
-        })}
-      </div>
     </div>
-  );
-};
+  )
+}
 
-export default Pdm;
+export default Pdm

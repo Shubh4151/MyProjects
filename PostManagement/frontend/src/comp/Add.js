@@ -1,62 +1,50 @@
 import axios from "axios"
-import React, { useState, useEffect, useContext } from "react"
-import Cookies from "js-cookie"
-import Ct from "./Ct"
-
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import Cookies from 'js-cookie'
 const Add = () => {
-let [msg, setMsg] = useState("")
-  let [artical, setArt] = useState({ title: "", text: "", cat: "" });
-  let obj = useContext(Ct);
-  useEffect(() => {
-    let x = Cookies.get("con");
-    if (x != undefined) {
-      obj.updstate(JSON.parse(x));
+  let [data,setData]=useState({"title":"","desc":"","cat":""})
+  let [msg,setMsg]=useState("")
+  let [ck,setCk]=useState({"uid":"","name":""})
+  let navigate=useNavigate()
+  useEffect(()=>{
+    let t=Cookies.get("lgc")
+    if(t!=undefined)
+    {
+setCk({...JSON.parse(t)})
     }
-  }, []);
+    else{
+      navigate("/login")
+    }
 
-  let fun = (e) => {
-    setArt({ ...artical, [e.target.name]: e.target.value });
-  };
-  let add = () => {
-    axios
-      .post("http://localhost:5000/add", {
-        ...artical,
-        date: new Date().toLocaleDateString(),
-        uid: obj.state._id,
-        uname: obj.state.name,
-      })
-      .then((res) => {
-        setMsg(res.data.msg);
-      });
-  };
+  },[])
 
+  let fun=(e)=>{
+    setData({...data,[e.target.name]:e.target.value})
+  }
+
+  let add=()=>{
+    axios.post("http://localhost:5000/addpost",{...data,"uid":ck.uid,"name":ck.name}).then((res)=>{
+      setMsg(res.data.msg)
+    })
+
+  }
   return (
-    <div className="add-con">
-      <div className="add-box">
-        <h2>🚀 CREATE YOUR POST</h2>
-        <p>Share your thoughts with the world! 🌍</p>
-        <h3 className="msg">{msg}</h3>
-        <input type="text" placeholder="Title" value={artical.title} name="title" onChange={fun} />
-        <textarea
-        value={artical.text}
-          placeholder="Details..."
-          name="text"
-          onChange={fun}
-        ></textarea>
-        <select name="cat" onChange={fun} value={artical.cat}>
-          <option selected disabled value="">
-            Category
-          </option>
-          <option value="sports">Sports</option>
-          <option value="news">News</option>
-          <option value="bs">Business</option>
-          <option value="edu">Education</option>
-          <option value="others">Others</option>
+    <div className='postcon'>
+      <div className="post">
+        <div>{msg}</div>
+        <input type="text" placeholder="Enter Title" name="title" onChange={fun} value={data.title}/>
+        <input type="text" placeholder="Enter Description" name="desc" onChange={fun} value={data.desc}/>
+        <select onChange={fun} name='cat' value={data.cat}>
+          <option value="" selected disabled>Select Category</option>
+          <option value='news' >News</option>
+          <option value='sports'>Sports</option>
+          <option value='other'>Other</option>
         </select>
-        <button onClick={add}>🔥 ADD POST</button>
+        <button onClick={add}>Post</button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Add;
+export default Add
