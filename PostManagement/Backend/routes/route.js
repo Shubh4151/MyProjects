@@ -1,0 +1,16 @@
+let express=require("express")
+const { reg, login } = require("../controller/usercon")
+const { addpost, getall, getbycat, postsbyme, getposts, updposts, addlike, adddlike } = require("../controller/postcon")
+let rt=new express.Router()
+rt.post("/reg",reg)
+rt.post("/login",login)
+rt.post("/add",addpost)
+rt.get("/",getall)
+rt.get("/posts/:cat",getbycat)
+rt.get("/postsbyme/:uid",postsbyme)
+rt.get("/admin",getposts)
+rt.put("/updpost",updposts)
+rt.post("/addlike",addlike)
+rt.post("/adddlike",adddlike)
+
+module.exports=rt
