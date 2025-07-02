@@ -1,4 +1,4 @@
-const um = require("../models/usermodel")
+const um = require("../model/usermodel")
 let bcrypt=require("bcrypt")
 let jwt=require("jsonwebtoken")
 

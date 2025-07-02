@@ -1,6 +1,6 @@
 let express=require("express")
-const { adduser, login } = require("../controlers/usercon")
-const { add, getall, getbycat, upd, del, pdm, admin, inspect, accept, like, dlike } = require("../controlers/postcont")
+const { adduser, login } = require("../controller/usercon")
+const { add, getall, getbycat, upd, del, pdm, admin, inspect, accept, like, dlike } = require("../controller/postcon")
 let rt=new express.Router()
 rt.post("/reg",adduser)
 rt.post("/login",login)

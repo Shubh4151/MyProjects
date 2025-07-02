@@ -1,5 +1,5 @@
 let {v4}=require("uuid")
-const pm = require("../models/postmodel")
+const pm = require("../model/postmodel")
 let add=async(req,res)=>{
     try{
         let data=new pm({...req.body,"_id":v4()})
