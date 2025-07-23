@@ -30,12 +30,14 @@ let login=async(req,res)=>{
         }
         else{
             res.json({"msg":"check email"})
+            console.log(err)
         }
 
     }
     catch(err)
     {
         res.json({"err":"error in login"})
+        console.log(err)
     }
 }
 

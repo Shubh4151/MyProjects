@@ -24,13 +24,13 @@ const Login = () => {
     })
   }
   return (
-    <div>
+    <div className='msg'>
       <div>{msg}</div>
-      <input type='text' value={data._id} onChange={fun} name="_id"/>
-      <input type='password' value={data.pwd} onChange={fun} name='pwd'/>
+      <br/>
+      <input type='text' placeholder='Enter id' value={data._id} onChange={fun} name='_id'/>
+      <input type='password' placeholder='Enter password' value={data.pwd} onChange={fun} name='pwd'/>
       <button onClick={login}>Login</button>
     </div>
   )
 }
-
 export default Login

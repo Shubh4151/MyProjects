@@ -10,7 +10,6 @@ const Hal = () => {
     let gethal=()=>{
         axios.get(`http://localhost:5000/hal/${opt}/${val}`).then((res)=>{
             setData(res.data)
-         
         })
     }
   return (
@@ -25,7 +24,6 @@ const Hal = () => {
       </div>
         {data!==""&&data.length==0&&<div>Check details</div>}
        {data!=""&&data.length>0&& <div className='hcard'>
-
             <img src={`http://localhost:5000/pic/${data[0].photo}`}/>
             <p>HALLNO:{data[0]._id}</p>
             <p>Name:{data[0].name}</p>

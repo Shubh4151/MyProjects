@@ -7,8 +7,8 @@ const Nav = () => {
   return (
     <nav>
         <Link to="/">Home</Link>
-        <Link to="/reg">Studentreg</Link>
-        <Link to="/hal">Print HAL</Link>
+        <Link to="/reg">Student Registration</Link>
+        <Link to="/hal">Print Hallticket</Link>
      { obj.store.token==""&&<Link to="/login">AdminLogin</Link>}
      { obj.store.token!=""&&  <Link to="/disp">Disp</Link>}
      { obj.store.token!=""&&  <Link to="/logout">Logout</Link>}
