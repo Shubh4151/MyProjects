@@ -128,3 +128,8 @@ img {
   flex-direction: column;
   margin: 8%;
 }
+/* result table */
+.tbl{
+  width: 60%;
+  margin-top: 2%;
+}

@@ -32,7 +32,7 @@ axios.get("http://localhost:5000/getstd",{"headers":{"Authorization":obj.store.t
   }
   return (
     <div id='disp'>
-      {data.length>0&&<table>
+      {data.length>0&&<table className='tbl'>
         <tr><th>SNo</th><th>HNO</th><th>Name</th><th>Phno</th><th>E-mail0</th><th>Gender</th><th>Telugu</th><th>Hindi</th><th>English</th>
         <th>Maths</th><th>Science</th><th>Scocial</th></tr>
         {

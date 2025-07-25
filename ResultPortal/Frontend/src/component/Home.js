@@ -30,7 +30,7 @@ const Home = () => {
             <tr><th>Maths</th><td>{data.m}</td></tr>
             <tr><th>Science</th><td>{data.s}</td></tr>
             <tr><th>Scocial</th><td>{data.sc}</td></tr>
-            <tr><th>Total</th><td>{data.tel+data.hn+data.eg+data.m+data.s+data.sc}</td></tr>
+            <tr><th>Total</th><td><b>{data.tel+data.hn+data.eg+data.m+data.s+data.sc}</b></td></tr>
         </table>}
     </div>
   )
