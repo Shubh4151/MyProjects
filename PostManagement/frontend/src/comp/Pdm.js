@@ -35,11 +35,9 @@ let cobj=JSON.parse(t)
                         {post.comm!=undefined&&<p>{post.comm}</p>}
                         <p>Status:{post.status}</p>
                     </div>
-
                 </div>)
             })
         }
-
     </div>
   )
 }
