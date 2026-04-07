@@ -3,6 +3,7 @@ let mongoose=require("mongoose")
 let cors=require("cors")
 let bodyParser=require("body-parser")
 const rt = require("./routes/rt")
+
 mongoose.connect("mongodb://127.0.0.1:27017/s34resportal").then(()=>{
     console.log("ok")
 })
