@@ -13,5 +13,4 @@ app.use(cors())
 app.use("/imgs",express.static("./prodimgs"))
 app.use(bodyParser.urlencoded({"extended":true}))
 app.use("/",rt)
-
 app.listen(5000)
